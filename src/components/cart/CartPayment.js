@@ -6,6 +6,8 @@ import CartReceive from './CartReceive'
 import CartCreditCard from './CartCreditCard'
 import CartRemarks from './CartRemarks'
 import CartReceipt from './CartReceipt'
+import BackToCartBtn from './BackToCartBtn'
+import RecheckOrderBtn from './RecheckOrderBtn'
 
 function CartPayment(props) {
   return (
@@ -38,14 +40,9 @@ function CartPayment(props) {
         <CartRemarks />
         <CartReceipt />
       </div>
-      <div className="row col-12 px-0 justify-content-between">
-        <input className="btn" type="button" id="backToCart" value="回購物車" />
-        <input
-          className="btn"
-          type="button"
-          id="recheckOrder"
-          value="確認訂單"
-        />
+      <div className="row col-12 justify-content-between mb-5">
+        <BackToCartBtn />
+        <RecheckOrderBtn />
       </div>
     </>
   )

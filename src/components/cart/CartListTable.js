@@ -4,6 +4,7 @@ import CartDetail from './CartDetail'
 import CartDiscount from './CartDiscount'
 import CartDelivery from './CartDelivery'
 import CartOrderInfo from './CartOrderInfo'
+import CartDetailEmpty from './CartDetailEmpty'
 
 function CartListTable(props) {
   return (
@@ -19,6 +20,7 @@ function CartListTable(props) {
                 <th>單價</th>
                 <th>數量</th>
                 <th>小計</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>

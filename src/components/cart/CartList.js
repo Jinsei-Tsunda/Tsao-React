@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import CartListTable from './CartListTable'
+import BackToShopBtn from './BackToShopBtn'
 
 function CartList(props) {
   return (
@@ -11,6 +12,9 @@ function CartList(props) {
         </div>
       </div>
       <CartListTable />
+      <div className="row col-12 pr-0 mb-5">
+        <BackToShopBtn />
+      </div>
     </>
   )
 }

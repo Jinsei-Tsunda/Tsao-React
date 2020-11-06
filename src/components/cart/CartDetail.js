@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function CartDetail(props) {
+  const [amount, setAmount] = useState(1)
+
   return (
     <>
       <tr>
@@ -29,6 +31,11 @@ function CartDetail(props) {
         </td>
         <td>
           <span>NT$ 500</span>
+        </td>
+        <td>
+          <button type="button" className="btn del-btn">
+            刪除
+          </button>
         </td>
       </tr>
     </>

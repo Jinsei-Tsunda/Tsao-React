@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import CartMobileReceipt from './CartMobileReceipt'
+
 function CartReceipt(props) {
   return (
     <>
@@ -39,10 +41,7 @@ function CartReceipt(props) {
             />
             <label for="receipt-3">手機載具</label>
             <br />
-            <div id="receipt-device-wrap" className="">
-              <label for="receipt-device">手機載具條碼：</label>
-              <input type="text" id="receipt-device" />
-            </div>
+            <CartMobileReceipt />
           </div>
         </div>
       </div>

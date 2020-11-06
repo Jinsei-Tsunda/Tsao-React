@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function CartCreditCard(props) {
   return (
@@ -15,32 +15,55 @@ function CartCreditCard(props) {
             </thead>
           </table>
           <div className="inner">
-            <label for="" className="mb-3">
+            <label for="cardNum" className="mb-3">
               卡號：
             </label>
-            <input type="text" className="credit-num mr-1 mb-3" />
-            &ndash;
-            <input type="text" className="credit-num mr-1 mb-3" />
-            &ndash;
-            <input type="text" className="credit-num mr-1 mb-3" />
-            &ndash;
-            <input type="text" className="credit-num mb-3" />
+            <input
+              type="text"
+              name="cardNum"
+              className="mr-1 mb-3"
+              maxLength="16"
+              pattern=""
+            />
             <br />
-            <label for="" className="">
+            <label for="cardExpire" className="">
               到期日：
             </label>
-            <input type="text" className="credit-num mr-1 mb-3" />
+            <input
+              type="text"
+              name="cardExpire"
+              className="credit-num mr-1 mb-3"
+              maxLength="2"
+              pattern="^[0-1]"
+            />
             &frasl;
-            <input type="text" className="credit-num mr-1 mb-3" />
-            <label for="" className="">
+            <input
+              type="text"
+              name="cardExpire"
+              className="credit-num mr-1 mb-3"
+              maxLength="2"
+              pattern=""
+            />
+            <label for="securityCode" className="">
               安全碼：
             </label>
-            <input type="text" className="credit-num mr-1 mb-3" />
+            <input
+              type="text"
+              name="securityCode"
+              className="credit-num mr-1 mb-3"
+              maxLength="3"
+              pattern=""
+            />
             <br />
-            <label for="" className="mb-3">
+            <label for="cardName" className="mb-3">
               持卡人姓名：
             </label>
-            <input type="text" className="credit-name" />
+            <input
+              type="text"
+              name="cardName"
+              className="credit-name"
+              pattern=""
+            />
           </div>
         </div>
       </div>
