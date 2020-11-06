@@ -173,6 +173,10 @@ textarea {
   width: 75px;
   height: 40px;
 }
+.order-list {
+  width: 60%;
+  border: 2px solid #ddead7;
+}
 
 .reverse {
   transform: rotate(180deg);

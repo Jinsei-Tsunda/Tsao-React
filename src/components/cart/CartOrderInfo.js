@@ -1,4 +1,7 @@
 import React from 'react'
+import PaymentInfo from '../../pages/PaymentInfo'
+
+import PaymentInfoBtn from './PaymentInfoBtn'
 
 function CartOrderInfo(props) {
   return (
@@ -33,13 +36,7 @@ function CartOrderInfo(props) {
               <p>1000</p>
             </div>
             <div className="d-flex justify-content-center">
-              <input
-                className="btn checkout"
-                type="button"
-                name="checkout"
-                id="checkout"
-                value="前往結帳"
-              />
+              <PaymentInfoBtn />
             </div>
           </div>
         </div>

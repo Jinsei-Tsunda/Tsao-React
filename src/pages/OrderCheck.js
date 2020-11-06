@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import bootstrap from 'react-bootstrap'
 
-import CartPayment from '../components/cart/CartPayment'
+import CartOrder from '../components/cart/CartOrder'
 
 import '../../node_modules/bootstrap/scss/bootstrap.scss'
 import '../styles/cart/cart.css'
 
-function PaymentInfo(props) {
+function OrderCheck(props) {
   return (
     <div className="container">
-      <CartPayment />
+      <CartOrder />
     </div>
   )
 }
 
-export default PaymentInfo
+export default OrderCheck

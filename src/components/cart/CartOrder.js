@@ -1,17 +1,27 @@
 import React, { useState } from 'react'
 
-import BackToShopBtn from './BackToShopBtn'
+import CartDropdown from './CartDropdown'
+import CartListTableBuild from './CartListTableBuild'
+import OrderListCard from './OrderListCard'
+import PaymentInfoBtn from './PaymentInfoBtn'
+import CheckoutBtn from './CheckoutBtn'
 
 function CartOrder(props) {
   return (
     <>
-      <div classNameName="row justify-content-center">
-        <div className="step-wrap">
-          <img src="./images/step3.png" alt="" />
+      <div className="container">
+        <div classNameName="row justify-content-center">
+          <div className="step-wrap">
+            <img src="./images/step3.png" alt="" />
+          </div>
         </div>
-      </div>
-      <div className="row col-12 pr-0 mb-5 justify-content-center">
-        <BackToShopBtn />
+        <CartDropdown />
+        <CartListTableBuild />
+        <OrderListCard />
+        <div className="row col-12 mb-5 justify-content-between">
+          <PaymentInfoBtn />
+          <CheckoutBtn />
+        </div>
       </div>
     </>
   )
