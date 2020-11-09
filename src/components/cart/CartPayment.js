@@ -29,8 +29,12 @@ function CartPayment(props) {
         <CartReceipt />
       </div>
       <div className="row col-12 justify-content-between mb-5">
-        <BackToCartBtn />
-        <RecheckOrderBtn />
+        <Link to="/cart">
+          <BackToCartBtn />
+        </Link>
+        <Link to="/order-check">
+          <RecheckOrderBtn />
+        </Link>
       </div>
     </>
   )

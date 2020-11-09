@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import OrderListCard from '../components/cart/OrderListCard'
 import BackToShopBtn from '../components/cart/BackToShopBtn'
@@ -12,7 +13,9 @@ function OrderDone(props) {
         </div>
         <OrderListCard />
         <div className="row col-12 mb-5 justify-content-center">
-          <BackToShopBtn />
+          <Link to="/ShopList">
+            <BackToShopBtn />
+          </Link>
         </div>
       </div>
     </>

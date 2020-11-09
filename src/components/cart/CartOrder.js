@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import CartDropdown from './CartDropdown'
 import CartListTableBuild from './CartListTableBuild'
@@ -19,8 +20,12 @@ function CartOrder(props) {
         <CartListTableBuild />
         <OrderListCard />
         <div className="row col-12 mb-5 justify-content-between">
-          <PaymentInfoBtn />
-          <CheckoutBtn />
+          <Link to="/order-check">
+            <PaymentInfoBtn />
+          </Link>
+          <Link to="/order-done">
+            <CheckoutBtn />
+          </Link>
         </div>
       </div>
     </>

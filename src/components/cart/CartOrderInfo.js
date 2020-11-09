@@ -1,5 +1,5 @@
 import React from 'react'
-import PaymentInfo from '../../pages/PaymentInfo'
+import { Link } from 'react-router-dom'
 
 import PaymentInfoBtn from './PaymentInfoBtn'
 
@@ -36,7 +36,9 @@ function CartOrderInfo(props) {
               <p>1000</p>
             </div>
             <div className="d-flex justify-content-center">
-              <PaymentInfoBtn />
+              <Link to="/payment-info">
+                <PaymentInfoBtn />
+              </Link>
             </div>
           </div>
         </div>
