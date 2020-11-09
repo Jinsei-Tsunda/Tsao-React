@@ -1,5 +1,4 @@
 import React from 'react'
-import CartDetail from './CartDetail'
 
 function CartDelivery(props) {
   return (
