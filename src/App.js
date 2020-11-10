@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import ScrollToTop from './components/ScrollToTop'
+import ShopList from './pages/ShopList'
 import Cart from './pages/Cart'
 import PaymentInfo from './pages/PaymentInfo'
 import OrderCheck from './pages/OrderCheck'
@@ -13,6 +14,9 @@ function App() {
       <ScrollToTop>
         <Switch>
           <Route exact path="/"></Route>
+          <Route path="/ShopList">
+            <ShopList />
+          </Route>
           <Route path="/cart">
             <Cart />
           </Route>

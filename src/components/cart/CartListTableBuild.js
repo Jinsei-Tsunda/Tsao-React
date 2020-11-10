@@ -1,7 +1,6 @@
 import React from 'react'
 
 import CartDetailBuild from './CartDetailBuild'
-import CartDiscountBuild from './CartDiscountBuild'
 
 function CartListTable(props) {
   return (
@@ -21,7 +20,16 @@ function CartListTable(props) {
             <tbody>
               <CartDetailBuild />
               <CartDetailBuild />
-              <CartDiscountBuild />
+              <tr className="table-text">
+                <td>
+                  已享用之優惠
+                  <br />
+                  <div className="discount-box">
+                    <span>優惠促銷</span>
+                  </div>
+                  &ensp;<span>全站滿 600 元，即享免運優惠</span>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
