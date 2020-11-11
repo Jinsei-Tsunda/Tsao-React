@@ -3,14 +3,40 @@ import { Link } from 'react-router-dom'
 
 import PaymentInfoBtn from './PaymentInfoBtn'
 
-function CartListTable(props) {
+function CartContent(props) {
   const [mycart, setMycart] = useState([])
-  const [dataLoading, setDataLoading] = useState(false)
+  const [isEmpty, setIsEmpty] = useState(true)
   const [mycartDisplay, setMycartDisplay] = useState([])
 
-  function getCartFromLocalStorage() {
-    setDataLoading(true)
+  //
+  //   function setCartFromLocalStorage() {
+  //     let cart = [
+  //       {
+  //         sid: 1,
+  //         name: '順其自然卸妝乳',
+  //         price: 350,
+  //         picture: '/images/facial1.jpg',
+  //         amount: 2,
+  //       },
+  //       {
+  //         sid: 5,
+  //         name: '煥然一新晚霜',
+  //         price: 500,
+  //         picture: '/images/facial5.jpg',
+  //         amount: 3,
+  //       },
+  //       {
+  //         sid: 3,
+  //         name: '無負擔精華油',
+  //         price: 500,
+  //         picture: '/images/facial3.jpg',
+  //         amount: 1,
+  //       },
+  //     ]
+  //     localStorage.setItem('cart', JSON.stringify(cart))
+  //   }
 
+  function getCartFromLocalStorage() {
     const newCart = localStorage.getItem('cart') || '[]'
 
     console.log(JSON.parse(newCart))
@@ -18,34 +44,52 @@ function CartListTable(props) {
     setMycart(JSON.parse(newCart))
   }
 
+  //
+  //   useEffect(() => {
+  //     setCartFromLocalStorage()
+  //   })
+
   useEffect(() => {
     getCartFromLocalStorage()
   }, [])
+
+  // componentDidUpdate
   useEffect(() => {
-    //mycartDisplay
+    // mycartDisplay運算
     let newMycartDisplay = []
 
+    //尋找mycartDisplay
     for (let i = 0; i < mycart.length; i++) {
+      //尋找mycartDisplay中有沒有此mycart[i].id
+      //有找到會返回陣列成員的索引值
+      //沒找到會返回-1
       const index = newMycartDisplay.findIndex(
-        (value) => value.id === mycart[i].id
+        (value) => value.sid === mycart[i].sid
       )
+      //有的話就數量+1
       if (index !== -1) {
+        //每次只有加1個數量
+        //newMycartDisplay[index].amount++
+        //假設是加數量的
         newMycartDisplay[index].amount += mycart[i].amount
       } else {
+        //沒有的話就把項目加入，數量為1
         const newItem = { ...mycart[i] }
         newMycartDisplay = [...newMycartDisplay, newItem]
       }
     }
+
     console.log(newMycartDisplay)
     setMycartDisplay(newMycartDisplay)
   }, [mycart])
 
+  // 更新購物車中的商品數量
   const updateCartToLocalStorage = (item, isAdded = true) => {
     console.log(item, isAdded)
     const currentCart = JSON.parse(localStorage.getItem('cart')) || []
 
     // find if the product in the localstorage with its id
-    const index = currentCart.findIndex((v) => v.id === item.id)
+    const index = currentCart.findIndex((v) => v.sid === item.sid)
 
     console.log('index', index)
     // found: index! == -1
@@ -68,15 +112,14 @@ function CartListTable(props) {
     return total
   }
 
-  const loading = (
-    <>
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    </>
-  )
+  function deliveryDiscount() {
+    let sumtotal = sum(mycartDisplay)
+    if (sumtotal < 600) {
+      return 60
+    } else {
+      return 0
+    }
+  }
 
   const display = (
     <>
@@ -230,7 +273,7 @@ function CartListTable(props) {
               </div>
               <div className="d-flex justify-content-between">
                 <p>運費：</p>
-                <p>0</p>
+                <p>{deliveryDiscount()}</p>
               </div>
               <div className="d-flex justify-content-between">
                 <p>優惠：</p>
@@ -239,7 +282,7 @@ function CartListTable(props) {
               <hr />
               <div className="d-flex justify-content-between">
                 <p>總計：</p>
-                <p>1000</p>
+                <p>{sum(mycartDisplay) + deliveryDiscount()}</p>
               </div>
               <div className="d-flex justify-content-center">
                 <Link to="/payment-info">
@@ -252,6 +295,7 @@ function CartListTable(props) {
       </div>
     </>
   )
+
   const empty = (
     <>
       <div className="row col-12 px-0">
@@ -289,7 +333,12 @@ function CartListTable(props) {
     </>
   )
 
-  return dataLoading ? empty : display
-}
+  useEffect(() => {
+    if (mycartDisplay.length !== 0) {
+      setIsEmpty(false)
+    }
+  })
 
-export default CartListTable
+  return isEmpty ? empty : display
+}
+export default CartContent
