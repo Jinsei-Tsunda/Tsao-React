@@ -14,7 +14,7 @@ function OrderDone(props) {
         <OrderListCard />
         <div className="row col-12 mb-5 justify-content-center">
           <Link to="/ShopList">
-            <BackToShopBtn />
+            <BackToShopBtn onClick={localStorage.removeItem('cart')} />
           </Link>
         </div>
       </div>
